@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,25 +31,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-  btnWrapper: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginBottom: 36,
-  },
-  btn: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 318,
-    height: 63,
-    borderRadius: 8,
-    backgroundColor: '#1C5BB9',
-  },
-  btnText: {
-    color: '#FFFFFF',
-    fontSize: 20,
-    fontWeight: '700',
-  },
 });
 
-export {styles};
+export { styles };
