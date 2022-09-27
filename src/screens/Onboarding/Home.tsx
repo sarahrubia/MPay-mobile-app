@@ -2,12 +2,13 @@ import {
   Image,
   SafeAreaView,
   Text,
-  TouchableOpacity,
+  // TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
 
 import { styles } from './styles';
+import AppButton from '../../components/AppButton';
 
 const Home = () => {
   return (
@@ -22,11 +23,7 @@ const Home = () => {
           </Text>
         </View>
       </View>
-      <View style={styles.btnWrapper}>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>COMEÇAR</Text>
-        </TouchableOpacity>
-      </View>
+      <AppButton title={'COMEÇAR'} />
     </SafeAreaView>
   );
 };

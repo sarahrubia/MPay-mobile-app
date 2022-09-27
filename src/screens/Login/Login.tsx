@@ -1,14 +1,16 @@
-import { Text, View } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
 import React from 'react';
+import AppButton from '../../components/AppButton';
 
 const Login = () => {
-  render() {
-    return (
+  return (
+    <SafeAreaView>
       <View>
         <Text>Login</Text>
+        <AppButton title={'LOGIN'} />
       </View>
-    );
-  }
-}
+    </SafeAreaView>
+  );
+};
 
 export default Login;
