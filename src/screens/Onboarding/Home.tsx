@@ -1,7 +1,13 @@
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 
-import {styles} from './styles';
+import { styles } from './styles';
 
 const Home = () => {
   return (
