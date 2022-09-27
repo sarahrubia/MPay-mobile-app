@@ -2,13 +2,13 @@ import {
   Image,
   SafeAreaView,
   StatusBar,
+  StyleSheet,
   Text,
   View,
 } from 'react-native';
 import React from 'react';
 
-import { styles } from './styles';
-import AppButton from '../../components/AppButton';
+import AppButton from '../components/AppButton';
 
 const Home = () => {
   return (
@@ -30,3 +30,36 @@ const Home = () => {
 };
 
 export default Home;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#222222',
+  },
+  content: {
+    paddingTop: 56,
+    paddingHorizontal: 36,
+  },
+  img: {
+    width: 280,
+    height: 304,
+    alignSelf: 'center',
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
+
+  bigText: {
+    fontSize: 36,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
+  smallText: {
+    fontSize: 20,
+    paddingTop: 18,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
+});
