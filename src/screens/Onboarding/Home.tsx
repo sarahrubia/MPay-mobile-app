@@ -1,6 +1,7 @@
 import {
   Image,
   SafeAreaView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View,
@@ -12,6 +13,7 @@ import { styles } from './styles';
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
       <View style={styles.content}>
         <Image style={styles.img} source={require('../../assets/wallet.png')} />
         <View>
