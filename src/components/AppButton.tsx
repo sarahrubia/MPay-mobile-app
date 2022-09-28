@@ -1,14 +1,20 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { FunctionComponent } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 interface buttonText {
   title: string;
+  screenName?: string;
 };
 
-const AppButton: FunctionComponent<buttonText> = ({ title }) => {
+const AppButton: FunctionComponent<buttonText> = ({ title, screenName }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.btnWrapper}>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate(screenName)}
+        style={styles.btn}>
         <Text style={styles.btnText}>{title}</Text>
       </TouchableOpacity>
     </View>
@@ -22,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 36,
+    marginBottom: 16,
   },
   btn: {
     alignItems: 'center',

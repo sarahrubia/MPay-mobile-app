@@ -9,13 +9,15 @@ import {
 import React from 'react';
 
 import AppButton from '../components/AppButton';
+import { loginScreen } from '../constants/navigation/constants';
 
 const Home = () => {
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
       <View style={styles.content}>
-        <Image style={styles.img} source={require('../../assets/wallet.png')} />
+        <Image style={styles.img} source={require('../assets/wallet.png')} />
         <View>
           <Text style={styles.text}>Bem-vindo(a) ao melhor</Text>
           <Text style={styles.bigText}>aplicativo E-Wallet</Text>
@@ -24,7 +26,7 @@ const Home = () => {
           </Text>
         </View>
       </View>
-      <AppButton title={'COMEÇAR'} />
+      <AppButton title={'COMEÇAR'} screenName={loginScreen} />
     </SafeAreaView>
   );
 };
