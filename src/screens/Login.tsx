@@ -1,9 +1,12 @@
 import { StatusBar, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import React from 'react';
+import React, { useState } from 'react';
 import AppButton from '../components/AppButton';
+import CheckBox from '@react-native-community/checkbox';
 
 const Login = () => {
+  const [passwordInvisible, setPasswordInvisible] = useState(true);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
@@ -22,10 +25,16 @@ const Login = () => {
           <TextInput
             placeholder="Senha"
             placeholderTextColor="#9F9F9F"
-            secureTextEntry={true}
+            secureTextEntry={passwordInvisible}
             style={styles.inputBox}
           />
-          <View>
+          <View style={styles.rememberPassword}>
+            <CheckBox
+              boxType="square"
+              style={styles.checkbox}
+              onFillColor={'#FFFFFF'}
+              onTintColor={'#FFFFFF'}
+            />
             <Text style={styles.smallText}>Lembrar-me</Text>
           </View>
         </View>
@@ -39,16 +48,13 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
-  bg: {
-    backgroundColor: 'red',
-  },
   container: {
     flex: 1,
     backgroundColor: '#222222',
     alignItems: 'center',
   },
   content: {
-    top: 200,
+    marginTop: 250,
   },
   title: {
     fontSize: 36,
@@ -64,12 +70,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#FFFFFF',
   },
-  forgotPasswordText: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#FFFFFF',
-    textDecorationLine: 'underline',
-  },
   inputBox: {
     width: 318,
     height: 51,
@@ -78,5 +78,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff1e',
     marginBottom: 12,
     color: '#FFFFFF',
+  },
+  forgotPasswordText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    textDecorationLine: 'underline',
+  },
+  rememberPassword: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  checkbox: {
+    width: 15,
+    height: 15,
+    marginRight: 5,
+    borderRadius: 0,
   },
 });
