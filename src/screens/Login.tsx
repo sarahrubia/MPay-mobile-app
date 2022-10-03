@@ -1,11 +1,13 @@
-import { StatusBar, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, Touchable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { TextInput } from 'react-native-paper';
 import React, { useState } from 'react';
 import AppButton from '../components/AppButton';
 import CheckBox from '@react-native-community/checkbox';
 
 const Login = () => {
-  const [passwordInvisible, setPasswordInvisible] = useState(true);
+  // Ionicons.loadFont().then();
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,8 +27,16 @@ const Login = () => {
           <TextInput
             placeholder="Senha"
             placeholderTextColor="#9F9F9F"
-            secureTextEntry={passwordInvisible}
+            secureTextEntry={secureTextEntry}
             style={styles.inputBox}
+            right={
+              <TextInput.Icon
+                icon={secureTextEntry ? 'eye' : 'eye-off'}
+                onPress={() => setSecureTextEntry(!secureTextEntry)}
+                size={20}
+                iconColor="#9F9F9F"
+              />
+            }
           />
           <View style={styles.rememberPassword}>
             <CheckBox
@@ -54,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   content: {
-    marginTop: 250,
+    marginTop: 200,
   },
   title: {
     fontSize: 36,
@@ -74,7 +84,6 @@ const styles = StyleSheet.create({
     width: 318,
     height: 51,
     borderRadius: 8,
-    padding: 16,
     backgroundColor: '#ffffff1e',
     marginBottom: 12,
     color: '#FFFFFF',
