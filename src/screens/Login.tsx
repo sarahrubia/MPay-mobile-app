@@ -1,13 +1,21 @@
-import { StatusBar, StyleSheet, Text, Touchable, View } from 'react-native';
+import {
+  Image,
+  Pressable,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TextInput } from 'react-native-paper';
 import React, { useState } from 'react';
 import AppButton from '../components/AppButton';
 import CheckBox from '@react-native-community/checkbox';
 
 const Login = () => {
-  // Ionicons.loadFont().then();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
+  const [focusEmail, setFocusEmail] = useState(false);
+  const [focusPassword, setFocusPassword] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,25 +27,43 @@ const Login = () => {
           </Text>
         </View>
         <View>
-          <TextInput
-            placeholder="Email"
-            placeholderTextColor="#9F9F9F"
-            style={styles.inputBox}
-          />
-          <TextInput
-            placeholder="Senha"
-            placeholderTextColor="#9F9F9F"
-            secureTextEntry={secureTextEntry}
-            style={styles.inputBox}
-            right={
-              <TextInput.Icon
-                icon={secureTextEntry ? 'eye' : 'eye-off'}
+          <View style={styles.marginView}>
+            <TextInput
+              placeholder="Email"
+              placeholderTextColor="#9F9F9F"
+              onFocus={() => setFocusEmail(true)}
+              onBlur={() => setFocusEmail(false)}
+              style={focusEmail ? styles.inputBoxOnFocus : styles.inputBox}
+            />
+          </View>
+          <View style={styles.marginView}>
+            <TextInput
+              placeholder="Senha"
+              placeholderTextColor="#9F9F9F"
+              secureTextEntry={secureTextEntry}
+              onFocus={() => setFocusPassword(true)}
+              onBlur={() => setFocusPassword(false)}
+              style={focusPassword ? styles.inputBoxOnFocus : styles.inputBox}
+            />
+            <View style={styles.inputView}>
+              <Pressable
+                style={styles.pressableEye}
                 onPress={() => setSecureTextEntry(!secureTextEntry)}
-                size={20}
-                iconColor="#9F9F9F"
-              />
-            }
-          />
+                hitSlop={{ top: 20, bottom: 20 }}>
+                {secureTextEntry ? (
+                  <Image
+                    style={styles.eyeImg}
+                    source={require('../assets/view.png')}
+                  />
+                ) : (
+                  <Image
+                    style={styles.eyeImg}
+                    source={require('../assets/hide.png')}
+                  />
+                )}
+              </Pressable>
+            </View>
+          </View>
           <View style={styles.rememberPassword}>
             <CheckBox
               boxType="square"
@@ -80,13 +106,42 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#FFFFFF',
   },
+  inputView: {
+    position: 'absolute',
+    right: 5,
+    justifyContent: 'center',
+    top: 10,
+    bottom: 0,
+  },
   inputBox: {
     width: 318,
     height: 51,
     borderRadius: 8,
     backgroundColor: '#ffffff1e',
-    marginBottom: 12,
-    color: '#FFFFFF',
+    color: '#FFF',
+    paddingHorizontal: 16,
+  },
+  inputBoxOnFocus: {
+    width: 318,
+    height: 51,
+    borderRadius: 8,
+    backgroundColor: '#ffffff1e',
+    borderColor: '#3768E5',
+    borderWidth: 1,
+    color: '#FFF',
+    paddingHorizontal: 16,
+  },
+  pressableEye: {
+    width: 30,
+    height: 30,
+  },
+  eyeImg: {
+    width: 20,
+    height: 20,
+    tintColor: '#9F9F9F',
+  },
+  marginView: {
+    marginBottom: 10,
   },
   forgotPasswordText: {
     fontSize: 16,
