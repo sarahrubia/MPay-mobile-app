@@ -1,13 +1,13 @@
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { FunctionComponent } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-interface buttonText {
+interface AppButtonProps {
   title: string;
   screenName?: string;
 };
 
-const AppButton: FunctionComponent<buttonText> = ({ title, screenName }) => {
+function AppButton({ title, screenName }: AppButtonProps) {
   const navigation = useNavigation();
 
   return (
