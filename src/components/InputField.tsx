@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { Image, Pressable, StyleSheet, TextInput, View } from 'react-native';
 
-function InputField({ placeholder, placeholderTextColor, isSecurityMode }) {
+type InputFieldProps = {
+  placeholder: string;
+  placeholderTextColor: string;
+  securityMode: boolean;
+};
+
+function InputField({
+  placeholder,
+  placeholderTextColor,
+  securityMode,
+}: InputFieldProps) {
   const [isFocused, setFocus] = useState(false);
   const [isSecureTextEntry, setSecureTextEntry] = useState(false);
 
@@ -18,7 +28,7 @@ function InputField({ placeholder, placeholderTextColor, isSecurityMode }) {
         secureTextEntry={isSecureTextEntry}
         style={isFocused ? styles.inputBoxOnFocus : styles.inputBox}
       />
-      {isSecurityMode ? (
+      {securityMode ? (
         <View style={styles.inputView}>
           <Pressable
             style={styles.pressableEye}
