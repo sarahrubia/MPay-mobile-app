@@ -1,26 +1,12 @@
-import React, { useState } from 'react';
-import {
-  Image,
-  Pressable,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import React from 'react';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CheckBox from '@react-native-community/checkbox';
 
 import AppButton from '../components/AppButton';
+import InputField from '../components/InputField';
 
 function Login() {
-  const [isSecureTextEntry, setSecureTextEntry] = useState(true);
-  const [isEmailFocused, setEmailFocused] = useState(false);
-  const [isPasswordFocused, setPasswordFocused] = useState(false);
-
-  const EyeOpenedIcon = require('../assets/view.png');
-  const EyeClosedIcon = require('../assets/hide.png');
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
@@ -32,36 +18,18 @@ function Login() {
         </View>
         <View>
           <View style={styles.marginView}>
-            <TextInput
-              placeholder="Email"
-              placeholderTextColor="#9F9F9F"
-              onFocus={() => setEmailFocused(true)}
-              onBlur={() => setEmailFocused(false)}
-              style={isEmailFocused ? styles.inputBoxOnFocus : styles.inputBox}
+            <InputField
+              placeholder={'Email'}
+              placeholderTextColor={'#9F9F9F'}
+              isSecurityMode={false}
             />
           </View>
           <View style={styles.marginView}>
-            <TextInput
-              placeholder="Senha"
-              placeholderTextColor="#9F9F9F"
-              secureTextEntry={isSecureTextEntry}
-              onFocus={() => setPasswordFocused(true)}
-              onBlur={() => setPasswordFocused(false)}
-              style={
-                isPasswordFocused ? styles.inputBoxOnFocus : styles.inputBox
-              }
+            <InputField
+              placeholder={'Senha'}
+              placeholderTextColor={'#9F9F9F'}
+              isSecurityMode={true}
             />
-            <View style={styles.inputView}>
-              <Pressable
-                style={styles.pressableEye}
-                onPress={() => setSecureTextEntry(!isSecureTextEntry)}
-                hitSlop={{ top: 20, bottom: 20 }}>
-                <Image
-                  style={styles.eyeImg}
-                  source={isSecureTextEntry ? EyeOpenedIcon : EyeClosedIcon}
-                />
-              </Pressable>
-            </View>
           </View>
           <View style={styles.rememberPassword}>
             <CheckBox
@@ -80,7 +48,7 @@ function Login() {
       <Text style={styles.forgotPasswordText}>Esqueci minha senha</Text>
     </SafeAreaView>
   );
-};
+}
 
 export default Login;
 
