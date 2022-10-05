@@ -13,7 +13,7 @@ import CheckBox from '@react-native-community/checkbox';
 
 import AppButton from '../components/AppButton';
 
-const Login = () => {
+function Login() {
   const [isSecureTextEntry, setSecureTextEntry] = useState(true);
   const [isEmailFocused, setEmailFocused] = useState(false);
   const [isPasswordFocused, setPasswordFocused] = useState(false);

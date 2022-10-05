@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import AppButton from '../components/AppButton';
 import { routes } from '../constants/navigation/constants';
 
-const Home = () => {
+function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
