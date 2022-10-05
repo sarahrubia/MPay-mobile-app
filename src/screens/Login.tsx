@@ -14,9 +14,12 @@ import CheckBox from '@react-native-community/checkbox';
 import AppButton from '../components/AppButton';
 
 const Login = () => {
-  const [secureTextEntry, setSecureTextEntry] = useState(true);
-  const [focusEmail, setFocusEmail] = useState(false);
-  const [focusPassword, setFocusPassword] = useState(false);
+  const [isSecureTextEntry, setSecureTextEntry] = useState(true);
+  const [isEmailFocused, setEmailFocused] = useState(false);
+  const [isPasswordFocused, setPasswordFocused] = useState(false);
+
+  const EyeOpenedIcon = require('../assets/view.png');
+  const EyeClosedIcon = require('../assets/hide.png');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,36 +35,31 @@ const Login = () => {
             <TextInput
               placeholder="Email"
               placeholderTextColor="#9F9F9F"
-              onFocus={() => setFocusEmail(true)}
-              onBlur={() => setFocusEmail(false)}
-              style={focusEmail ? styles.inputBoxOnFocus : styles.inputBox}
+              onFocus={() => setEmailFocused(true)}
+              onBlur={() => setEmailFocused(false)}
+              style={isEmailFocused ? styles.inputBoxOnFocus : styles.inputBox}
             />
           </View>
           <View style={styles.marginView}>
             <TextInput
               placeholder="Senha"
               placeholderTextColor="#9F9F9F"
-              secureTextEntry={secureTextEntry}
-              onFocus={() => setFocusPassword(true)}
-              onBlur={() => setFocusPassword(false)}
-              style={focusPassword ? styles.inputBoxOnFocus : styles.inputBox}
+              secureTextEntry={isSecureTextEntry}
+              onFocus={() => setPasswordFocused(true)}
+              onBlur={() => setPasswordFocused(false)}
+              style={
+                isPasswordFocused ? styles.inputBoxOnFocus : styles.inputBox
+              }
             />
             <View style={styles.inputView}>
               <Pressable
                 style={styles.pressableEye}
-                onPress={() => setSecureTextEntry(!secureTextEntry)}
+                onPress={() => setSecureTextEntry(!isSecureTextEntry)}
                 hitSlop={{ top: 20, bottom: 20 }}>
-                {secureTextEntry ? (
-                  <Image
-                    style={styles.eyeImg}
-                    source={require('../assets/view.png')}
-                  />
-                ) : (
-                  <Image
-                    style={styles.eyeImg}
-                    source={require('../assets/hide.png')}
-                  />
-                )}
+                <Image
+                  style={styles.eyeImg}
+                  source={isSecureTextEntry ? EyeOpenedIcon : EyeClosedIcon}
+                />
               </Pressable>
             </View>
           </View>
