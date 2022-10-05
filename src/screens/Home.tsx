@@ -1,18 +1,11 @@
-import {
-  Image,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
 import React from 'react';
+import { Image, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import AppButton from '../components/AppButton';
-import { loginScreen } from '../constants/navigation/constants';
+import { routes } from '../constants/navigation/constants';
 
 const Home = () => {
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
@@ -26,7 +19,7 @@ const Home = () => {
           </Text>
         </View>
       </View>
-      <AppButton title={'COMEÇAR'} screenName={loginScreen} />
+      <AppButton title={'COMEÇAR'} screenName={routes.LOGIN} />
     </SafeAreaView>
   );
 };

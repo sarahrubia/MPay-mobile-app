@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   Image,
   Pressable,
@@ -8,9 +9,9 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import React, { useState } from 'react';
-import AppButton from '../components/AppButton';
 import CheckBox from '@react-native-community/checkbox';
+
+import AppButton from '../components/AppButton';
 
 const Login = () => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);

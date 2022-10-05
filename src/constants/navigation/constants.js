@@ -1,3 +1,5 @@
-export const loginScreen = 'Login';
-export const homeScreen = 'Home';
-export const dashboardScreen = 'Dashboard';
+export const routes = {
+  LOGIN: 'Login',
+  HOME: 'Home',
+  DASHBOARD: 'Dashboard',
+};
