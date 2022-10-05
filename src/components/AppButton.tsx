@@ -1,23 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-interface AppButtonProps {
+type AppButtonProps = {
   title: string;
-  screenName?: string;
+  onPress?: any;
 };
 
-function AppButton({ title, screenName }: AppButtonProps) {
-  const navigation = useNavigation();
-
+function AppButton({ title, onPress }: AppButtonProps) {
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate(screenName)}
-      style={styles.btn}>
+    <TouchableOpacity onPress={onPress} style={styles.btn}>
       <Text style={styles.btnText}>{title}</Text>
     </TouchableOpacity>
   );
-};
+}
 
 export default AppButton;
 

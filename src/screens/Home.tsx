@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,6 +7,7 @@ import AppButton from '../components/AppButton';
 import { routes } from '../constants/navigation/constants';
 
 function Home() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
@@ -20,11 +22,14 @@ function Home() {
         </View>
       </View>
       <View style={styles.btnWrapper}>
-        <AppButton title={'COMEÇAR'} screenName={routes.LOGIN} />
+        <AppButton
+          title={'COMEÇAR'}
+          onPress={() => navigation.navigate(routes.LOGIN)}
+        />
       </View>
     </SafeAreaView>
   );
-};
+}
 
 export default Home;
 
