@@ -24,8 +24,20 @@ const Routes = () => {
           },
           headerTintColor: '#FFF',
         }}>
-        <Stack.Screen name={routes.HOME} component={HomeScreen} />
-        <Stack.Screen name={routes.LOGIN} component={LoginScreen} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name={routes.HOME}
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          options={{
+            headerTitleStyle: {
+              color: 'transparent',
+            },
+          }}
+          name={routes.LOGIN}
+          component={LoginScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
