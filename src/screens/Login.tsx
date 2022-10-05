@@ -74,7 +74,9 @@ const Login = () => {
           </View>
         </View>
       </View>
-      <AppButton title={'ENTRAR'} />
+      <View style={styles.btnWrapper}>
+        <AppButton title={'ENTRAR'} />
+      </View>
       <Text style={styles.forgotPasswordText}>Esqueci minha senha</Text>
     </SafeAreaView>
   );
@@ -141,6 +143,12 @@ const styles = StyleSheet.create({
   },
   marginView: {
     marginBottom: 10,
+  },
+  btnWrapper: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: 16,
   },
   forgotPasswordText: {
     fontSize: 16,

@@ -19,7 +19,9 @@ const Home = () => {
           </Text>
         </View>
       </View>
-      <AppButton title={'COMEÇAR'} screenName={routes.LOGIN} />
+      <View style={styles.btnWrapper}>
+        <AppButton title={'COMEÇAR'} screenName={routes.LOGIN} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -56,5 +58,11 @@ const styles = StyleSheet.create({
     paddingTop: 18,
     fontWeight: '700',
     color: '#FFFFFF',
+  },
+  btnWrapper: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: 16,
   },
 });

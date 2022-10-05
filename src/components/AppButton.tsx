@@ -11,25 +11,17 @@ function AppButton({ title, screenName }: AppButtonProps) {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.btnWrapper}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate(screenName)}
-        style={styles.btn}>
-        <Text style={styles.btnText}>{title}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={() => navigation.navigate(screenName)}
+      style={styles.btn}>
+      <Text style={styles.btnText}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
 export default AppButton;
 
 const styles = StyleSheet.create({
-  btnWrapper: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
   btn: {
     alignItems: 'center',
     justifyContent: 'center',
