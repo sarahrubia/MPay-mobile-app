@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from './src/screens/Onboarding/Home';
+import Routes from './src/routes/public';
 
 const App = () => {
-  return <Home />;
+  return <Routes />;
 };
 
 export default App;
