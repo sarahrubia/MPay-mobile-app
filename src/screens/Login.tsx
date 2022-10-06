@@ -21,14 +21,14 @@ function Login() {
             <InputField
               placeholder={'Email'}
               placeholderTextColor={'#9F9F9F'}
-              securityMode={false}
+              secureTextEntry={false}
             />
           </View>
           <View style={styles.marginView}>
             <InputField
               placeholder={'Senha'}
               placeholderTextColor={'#9F9F9F'}
-              securityMode={true}
+              secureTextEntry={true}
             />
           </View>
           <View style={styles.rememberPassword}>
@@ -43,7 +43,7 @@ function Login() {
         </View>
       </View>
       <View style={styles.btnWrapper}>
-        <AppButton title={'ENTRAR'} />
+        <AppButton title={'ENTRAR'} onPress={() => console.log('Login')} />
       </View>
       <Text style={styles.forgotPasswordText}>Esqueci minha senha</Text>
     </SafeAreaView>

@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import { Image, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import {
+  ColorValue,
+  Image,
+  Pressable,
+  StyleSheet,
+  TextInput,
+  View,
+} from 'react-native';
 
 type InputFieldProps = {
-  placeholder: string;
-  placeholderTextColor: string;
-  securityMode: boolean;
+  placeholder?: string | undefined;
+  placeholderTextColor?: ColorValue | undefined;
+  secureTextEntry?: boolean | undefined;
 };
 
 function InputField({
   placeholder,
   placeholderTextColor,
-  securityMode,
-}: InputFieldProps) {
+  secureTextEntry,
+}: InputFieldProps): JSX.Element {
   const [isFocused, setFocus] = useState(false);
   const [isSecureTextEntry, setSecureTextEntry] = useState(false);
 
@@ -28,7 +35,7 @@ function InputField({
         secureTextEntry={isSecureTextEntry}
         style={isFocused ? styles.inputBoxOnFocus : styles.inputBox}
       />
-      {securityMode ? (
+      {secureTextEntry ? (
         <View style={styles.inputView}>
           <Pressable
             style={styles.pressableEye}

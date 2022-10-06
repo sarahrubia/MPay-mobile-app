@@ -3,8 +3,8 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 type AppButtonProps = {
   title: string;
-  onPress?: any;
-};
+  onPress: any;
+}
 
 function AppButton({ title, onPress }: AppButtonProps) {
   return (
