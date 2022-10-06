@@ -17,7 +17,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "react": "18.1.0",
     "react-native": "0.70.1",
-    "react-native-screens": "^3.17.0"
+    "react-native-screens": "^3.17.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -48,5 +49,8 @@
       "json",
       "node"
     ]
-  }
+  },
+  "resolutions": {
+      "styled-components": "^5"
+    }
 }

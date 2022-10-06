@@ -1,8 +1,8 @@
 import React from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import CheckBox from '@react-native-community/checkbox';
+import styled from 'styled-components/native';
 
 import AppButton from '../components/AppButton';
 import InputField from '../components/InputField';
@@ -11,129 +11,104 @@ import { routes } from '../constants/navigation/constants';
 function Login() {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles.container}>
+    <StyledSafeAreaView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
-      <View style={styles.content}>
+      <StyledViewContent>
         <View>
-          <Text style={styles.title}>
-            Entrar <Text style={styles.highlight}>M-PAY</Text>
-          </Text>
+          <StyledTextTitle>
+            Entrar <StyledTextHighlight>M-PAY</StyledTextHighlight>
+          </StyledTextTitle>
         </View>
         <View>
-          <View style={styles.marginView}>
+          <StyledMarginView>
             <InputField
               placeholder={'Email'}
               placeholderTextColor={'#9F9F9F'}
             />
-          </View>
-          <View style={styles.marginView}>
+          </StyledMarginView>
+          <StyledMarginView>
             <InputField
               placeholder={'Senha'}
               placeholderTextColor={'#9F9F9F'}
               secureTextEntry
             />
-          </View>
-          <View style={styles.rememberPassword}>
+          </StyledMarginView>
+          <StyledRememberPassword>
             <CheckBox
               boxType="square"
-              style={styles.checkbox}
+              style={StyledCheckbox}
               onFillColor={'#FFFFFF'}
               onTintColor={'#FFFFFF'}
             />
-            <Text style={styles.smallText}>Lembrar-me</Text>
-          </View>
+            <StyledSmallText>Lembrar-me</StyledSmallText>
+          </StyledRememberPassword>
         </View>
-      </View>
-      <View style={styles.btnWrapper}>
-        <AppButton title={'ENTRAR'} onPress={() => navigation.navigate(routes.DASHBOARD)} />
-      </View>
-      <Text style={styles.forgotPasswordText}>Esqueci minha senha</Text>
-    </SafeAreaView>
+      </StyledViewContent>
+      <StyledBtnWrapper>
+        <AppButton
+          title={'ENTRAR'}
+          onPress={() => navigation.navigate(routes.DASHBOARD)}
+        />
+      </StyledBtnWrapper>
+      <StyledForgotPasswordText>Esqueci minha senha</StyledForgotPasswordText>
+    </StyledSafeAreaView>
   );
 }
 
 export default Login;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#222222',
-    alignItems: 'center',
-  },
-  content: {
-    marginTop: 200,
-  },
-  title: {
-    fontSize: 36,
-    color: '#FFFFFF',
-    fontWeight: '700',
-    marginBottom: 40,
-  },
-  highlight: {
-    color: '#1C5BB9',
-  },
-  smallText: {
-    fontSize: 16,
-    fontWeight: '400',
-    color: '#FFFFFF',
-  },
-  inputView: {
-    position: 'absolute',
-    right: 5,
-    justifyContent: 'center',
-    top: 10,
-    bottom: 0,
-  },
-  inputBox: {
-    width: 318,
-    height: 51,
-    borderRadius: 8,
-    backgroundColor: '#ffffff1e',
-    color: '#FFF',
-    paddingHorizontal: 16,
-  },
-  inputBoxOnFocus: {
-    width: 318,
-    height: 51,
-    borderRadius: 8,
-    backgroundColor: '#ffffff1e',
-    borderColor: '#3768E5',
-    borderWidth: 1,
-    color: '#FFF',
-    paddingHorizontal: 16,
-  },
-  pressableEye: {
-    width: 30,
-    height: 30,
-  },
-  eyeImg: {
-    width: 20,
-    height: 20,
-    tintColor: '#9F9F9F',
-  },
-  marginView: {
-    marginBottom: 10,
-  },
-  btnWrapper: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  forgotPasswordText: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#FFFFFF',
-    textDecorationLine: 'underline',
-  },
-  rememberPassword: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  checkbox: {
-    width: 15,
-    height: 15,
-    marginRight: 5,
-    borderRadius: 0,
-  },
-});
+const StyledSafeAreaView = styled.SafeAreaView`
+  flex: 1;
+  background-color: #222222;
+  align-items: center;
+`;
+
+const StyledViewContent = styled.View`
+  margin-top: 200px;
+`;
+
+const StyledTextTitle = styled.Text`
+  font-size: 36px;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 40px;
+`;
+
+const StyledTextHighlight = styled.Text`
+  color: #1C5BB9;
+`;
+
+const StyledSmallText = styled.Text`
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+`;
+const StyledMarginView = styled.View`
+  margin-bottom: 10px;
+`;
+
+const StyledBtnWrapper = styled.View`
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 16px;
+`;
+
+const StyledForgotPasswordText = styled.Text`
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: underline;
+`;
+
+const StyledRememberPassword = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const StyledCheckbox = styled(CheckBox)`
+  width: 15px,
+  height: 15px,
+  margin-right: 5px,
+  border-radius: 0,
+`;
