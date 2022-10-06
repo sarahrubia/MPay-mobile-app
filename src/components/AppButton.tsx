@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  GestureResponderEvent,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 type AppButtonProps = {
   title: string;
   onPress: ((event: GestureResponderEvent) => void) | undefined;
-}
+};
 
 function AppButton({ title, onPress }: AppButtonProps) {
   return (
