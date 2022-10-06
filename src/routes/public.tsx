@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../screens/Home';
 import LoginScreen from '../screens/Login';
+import DashboardScreen from '../screens/Dashboard';
 import { routes } from '../constants/navigation/constants';
 
 type StackParamList = {
@@ -37,6 +38,15 @@ const Routes = () => {
           }}
           name={routes.LOGIN}
           component={LoginScreen}
+        />
+        <Stack.Screen
+          options={{
+            headerTitleStyle: {
+              color: 'transparent',
+            },
+          }}
+          name={routes.DASHBOARD}
+          component={DashboardScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

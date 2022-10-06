@@ -1,12 +1,15 @@
 import React from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CheckBox from '@react-native-community/checkbox';
 
 import AppButton from '../components/AppButton';
 import InputField from '../components/InputField';
+import { routes } from '../constants/navigation/constants';
 
 function Login() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
@@ -42,7 +45,7 @@ function Login() {
         </View>
       </View>
       <View style={styles.btnWrapper}>
-        <AppButton title={'ENTRAR'} onPress={() => console.log('Login')} />
+        <AppButton title={'ENTRAR'} onPress={() => navigation.navigate(routes.DASHBOARD)} />
       </View>
       <Text style={styles.forgotPasswordText}>Esqueci minha senha</Text>
     </SafeAreaView>
