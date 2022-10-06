@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 type AppButtonProps = {
   title: string;
-  onPress: any;
+  onPress: ((event: GestureResponderEvent) => void) | undefined;
 }
 
 function AppButton({ title, onPress }: AppButtonProps) {
