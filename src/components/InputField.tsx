@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
 import {
-  ColorValue,
   Image,
   Pressable,
   StyleSheet,
   TextInput,
+  TextInputProps,
   View,
 } from 'react-native';
-
-type InputFieldProps = {
-  placeholder?: string | undefined;
-  placeholderTextColor?: ColorValue | undefined;
-  secureTextEntry?: boolean | undefined;
-};
 
 function InputField({
   placeholder,
   placeholderTextColor,
   secureTextEntry,
-}: InputFieldProps): JSX.Element {
+}: TextInputProps): JSX.Element {
   const [isFocused, setFocus] = useState(false);
-  const [isSecureTextEntry, setSecureTextEntry] = useState(false);
+  const [isSecurityMode, setSecurityMode] = useState(false);
 
   const EyeOpenedIcon = require('../assets/view.png');
   const EyeClosedIcon = require('../assets/hide.png');
@@ -32,18 +26,18 @@ function InputField({
         placeholderTextColor={placeholderTextColor}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
-        secureTextEntry={isSecureTextEntry}
+        secureTextEntry={isSecurityMode}
         style={isFocused ? styles.inputBoxOnFocus : styles.inputBox}
       />
       {secureTextEntry ? (
         <View style={styles.inputView}>
           <Pressable
             style={styles.pressableEye}
-            onPress={() => setSecureTextEntry(!isSecureTextEntry)}
+            onPress={() => setSecurityMode(!isSecurityMode)}
             hitSlop={{ top: 20, bottom: 20 }}>
             <Image
               style={styles.eyeImg}
-              source={isSecureTextEntry ? EyeOpenedIcon : EyeClosedIcon}
+              source={isSecurityMode ? EyeOpenedIcon : EyeClosedIcon}
             />
           </Pressable>
         </View>

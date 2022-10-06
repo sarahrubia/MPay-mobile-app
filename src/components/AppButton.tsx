@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  GestureResponderEvent,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -8,7 +7,7 @@ import {
 
 type AppButtonProps = {
   title: string;
-  onPress: ((event: GestureResponderEvent) => void) | undefined;
+  onPress: () => void;
 };
 
 function AppButton({ title, onPress }: AppButtonProps) {

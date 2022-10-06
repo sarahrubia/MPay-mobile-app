@@ -21,14 +21,13 @@ function Login() {
             <InputField
               placeholder={'Email'}
               placeholderTextColor={'#9F9F9F'}
-              secureTextEntry={false}
             />
           </View>
           <View style={styles.marginView}>
             <InputField
               placeholder={'Senha'}
               placeholderTextColor={'#9F9F9F'}
-              secureTextEntry={true}
+              secureTextEntry
             />
           </View>
           <View style={styles.rememberPassword}>
