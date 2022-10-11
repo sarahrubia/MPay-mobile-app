@@ -1,13 +1,11 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import * as S from './styled';
 
 import AppButton from '../../components/AppButton';
 import { routes } from '../../constants/navigation/constants';
 
-function Home() {
-  const navigation = useNavigation();
+function Home({ navigation }) {
   return (
     <S.ContainerView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />

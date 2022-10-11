@@ -1,6 +1,5 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import CheckBox from '@react-native-community/checkbox';
 import * as S from './styled';
 
@@ -8,8 +7,7 @@ import AppButton from '../../components/AppButton';
 import InputField from '../../components/InputField';
 import { routes } from '../../constants/navigation/constants';
 
-function Login() {
-  const navigation = useNavigation();
+function Login({ navigation }) {
   return (
     <S.SafeAreaView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
