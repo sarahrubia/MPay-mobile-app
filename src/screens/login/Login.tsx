@@ -10,7 +10,7 @@ import * as S from './styled';
 
 function Login({ navigation }) {
   return (
-    <S.SafeAreaViewSafeAreaContext>
+    <S.SafeAreaViewContext>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
       <S.ContentView>
         <View>
@@ -56,7 +56,7 @@ function Login({ navigation }) {
         />
       </S.SubmitButtonWrapper>
       <S.ForgotPasswordText>Esqueci minha senha</S.ForgotPasswordText>
-    </S.SafeAreaViewSafeAreaContext>
+    </S.SafeAreaViewContext>
   );
 }
 
