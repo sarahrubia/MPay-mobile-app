@@ -15,26 +15,26 @@ export const HeaderImage = styled.Image`
   align-self: center;
 `;
 
-export const Text = styled.Text`
+export const WelcomeText = styled.Text`
   font-size: 24px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
-export const BigText = styled.Text`
+export const WalletText = styled.Text`
   font-size: 36px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
-export const SmallText = styled.Text`
+export const AppDescription = styled.Text`
   font-size: 20px;
   padding-top: 18px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
-export const BtnWrapper = styled.View`
+export const SubmitButtonWrapper = styled.View`
   flex: 1;
   justify-content: flex-end;
   align-items: center;

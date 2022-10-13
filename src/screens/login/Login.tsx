@@ -1,11 +1,12 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import * as S from './styled';
 
 import AppButton from '../../components/AppButton';
 import InputField from '../../components/InputField';
 import { routes } from '../../constants/navigation/constants';
+
+import * as S from './styled';
 
 function Login({ navigation }) {
   return (
@@ -13,24 +14,24 @@ function Login({ navigation }) {
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
       <S.ContentView>
         <View>
-          <S.TitleText>
-            Entrar <S.HighlightText>M-PAY</S.HighlightText>
-          </S.TitleText>
+          <S.Title>
+            Entrar <S.CompanyName>M-PAY</S.CompanyName>
+          </S.Title>
         </View>
         <View>
-          <S.MarginView>
+          <S.TextInputContainer>
             <InputField
               placeholder={'Email'}
               placeholderTextColor={'#9F9F9F'}
             />
-          </S.MarginView>
-          <S.MarginView>
+          </S.TextInputContainer>
+          <S.TextInputContainer>
             <InputField
               placeholder={'Senha'}
               placeholderTextColor={'#9F9F9F'}
               secureTextEntry
             />
-          </S.MarginView>
+          </S.TextInputContainer>
           <S.RememberPassword>
             <CheckBox
               boxType="square"
@@ -48,12 +49,12 @@ function Login({ navigation }) {
           </S.RememberPassword>
         </View>
       </S.ContentView>
-      <S.BtnWrapper>
+      <S.SubmitButtonWrapper>
         <AppButton
           title={'ENTRAR'}
           onPress={() => navigation.navigate(routes.DASHBOARD)}
         />
-      </S.BtnWrapper>
+      </S.SubmitButtonWrapper>
       <S.ForgotPasswordText>Esqueci minha senha</S.ForgotPasswordText>
     </S.SafeAreaViewSafeAreaContext>
   );

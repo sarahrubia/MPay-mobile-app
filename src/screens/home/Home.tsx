@@ -12,17 +12,19 @@ function Home({ navigation }) {
       <S.ContentView>
         <S.HeaderImage source={require('../../assets/wallet.png')} />
         <View>
-          <S.Text>Bem-vindo(a) ao melhor</S.Text>
-          <S.BigText>aplicativo E-Wallet</S.BigText>
-          <S.SmallText>M-Pay: A Melhor carteira digital do mundo!</S.SmallText>
+          <S.WelcomeText>Bem-vindo(a) ao melhor</S.WelcomeText>
+          <S.WalletText>aplicativo E-Wallet</S.WalletText>
+          <S.AppDescription>
+            M-Pay: A Melhor carteira digital do mundo!
+          </S.AppDescription>
         </View>
       </S.ContentView>
-      <S.BtnWrapper>
+      <S.SubmitButtonWrapper>
         <AppButton
           title={'COMEÇAR'}
           onPress={() => navigation.navigate(routes.LOGIN)}
         />
-      </S.BtnWrapper>
+      </S.SubmitButtonWrapper>
     </S.ContainerView>
   );
 }

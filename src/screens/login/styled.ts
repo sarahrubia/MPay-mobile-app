@@ -11,14 +11,14 @@ export const ContentView = styled.View`
   margin-top: 200px;
 `;
 
-export const TitleText = styled.Text`
+export const Title = styled.Text`
   font-size: 36px;
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 40px;
 `;
 
-export const HighlightText = styled.Text`
+export const CompanyName = styled.Text`
   color: #1c5bb9;
 `;
 
@@ -27,11 +27,11 @@ export const SmallText = styled.Text`
   font-weight: 400;
   color: #ffffff;
 `;
-export const MarginView = styled.View`
+export const TextInputContainer = styled.View`
   margin-bottom: 10px;
 `;
 
-export const BtnWrapper = styled.View`
+export const SubmitButtonWrapper = styled.View`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
