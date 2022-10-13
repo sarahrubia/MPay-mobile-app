@@ -1,6 +1,7 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export const SafeAreaView = styled.SafeAreaView`
+export const SafeAreaViewSafeAreaContext = styled.SafeAreaView`
   flex: 1;
   background-color: #222222;
   align-items: center;
@@ -12,19 +13,19 @@ export const ContentView = styled.View`
 
 export const TitleText = styled.Text`
   font-size: 36px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
   margin-bottom: 40px;
 `;
 
 export const HighlightText = styled.Text`
-  color: #1C5BB9;
+  color: #1c5bb9;
 `;
 
 export const SmallText = styled.Text`
   font-size: 16px;
   font-weight: 400;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 export const MarginView = styled.View`
   margin-bottom: 10px;
@@ -40,7 +41,7 @@ export const BtnWrapper = styled.View`
 export const ForgotPasswordText = styled.Text`
   font-size: 16px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: underline;
 `;
 

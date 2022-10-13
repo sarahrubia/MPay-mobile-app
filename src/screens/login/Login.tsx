@@ -9,7 +9,7 @@ import { routes } from '../../constants/navigation/constants';
 
 function Login({ navigation }) {
   return (
-    <S.SafeAreaView>
+    <S.SafeAreaViewSafeAreaContext>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
       <S.ContentView>
         <View>
@@ -55,7 +55,7 @@ function Login({ navigation }) {
         />
       </S.BtnWrapper>
       <S.ForgotPasswordText>Esqueci minha senha</S.ForgotPasswordText>
-    </S.SafeAreaView>
+    </S.SafeAreaViewSafeAreaContext>
   );
 }
 
