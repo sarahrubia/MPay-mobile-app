@@ -33,15 +33,8 @@ function Login({ navigation }) {
             />
           </S.TextInputContainer>
           <S.RememberPassword>
-            <CheckBox
+            <S.Checkbox
               boxType="square"
-              // eslint-disable-next-line react-native/no-inline-styles
-              style={{
-                width: 15,
-                height: 15,
-                marginRight: 5,
-                borderRadius: 0,
-              }}
               onFillColor={'#FFFFFF'}
               onTintColor={'#FFFFFF'}
             />

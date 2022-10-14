@@ -1,10 +1,18 @@
 import styled from 'styled-components/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import CheckBox from '@react-native-community/checkbox';
 
-export const SafeAreaViewContext = styled.SafeAreaView`
+export const SafeAreaViewContext = styled(SafeAreaView)`
   flex: 1;
   background-color: #222222;
   align-items: center;
+`;
+
+export const Checkbox = styled(CheckBox)`
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border-radius: 0;
 `;
 
 export const ContentView = styled.View`
