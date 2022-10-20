@@ -1,6 +1,5 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
 
 import AppButton from '../../components/AppButton';
 import InputField from '../../components/InputField';
