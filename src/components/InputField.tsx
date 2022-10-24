@@ -9,12 +9,11 @@ import {
 } from 'react-native';
 
 function InputField({
-  placeholder,
-  placeholderTextColor,
   secureTextEntry,
+  ...props
 }: TextInputProps): JSX.Element {
   const [isFocused, setFocus] = useState(false);
-  const [isSecurityMode, setSecurityMode] = useState(false);
+  const [isSecurityMode, setSecurityMode] = useState(secureTextEntry);
 
   const EyeOpenedIcon = require('../assets/view.png');
   const EyeClosedIcon = require('../assets/hide.png');
@@ -22,12 +21,11 @@ function InputField({
   return (
     <>
       <TextInput
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         secureTextEntry={isSecurityMode}
         style={isFocused ? styles.inputBoxOnFocus : styles.inputBox}
+        {...props}
       />
       {secureTextEntry ? (
         <View style={styles.inputView}>
