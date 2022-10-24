@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import AppButton from '../../components/AppButton';
 import InputField from '../../components/InputField';
 import { authenticate } from '../../store/auth/actions';
-import login from '../../services/auth';
+import loginAuth from '../../services/loginAuth';
 
 import * as S from './styled';
 
@@ -17,7 +17,7 @@ function Login() {
 
   async function handleLogin() {
     try {
-      let credentials = await login(email, password);
+      let credentials = await loginAuth(email, password);
       dispatch(authenticate(credentials));
     } catch (error) {
       Alert.alert(error.message);
