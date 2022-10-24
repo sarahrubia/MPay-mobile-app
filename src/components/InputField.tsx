@@ -21,11 +21,11 @@ function InputField({
   return (
     <>
       <TextInput
+        {...props}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         secureTextEntry={isSecurityMode}
         style={isFocused ? styles.inputBoxOnFocus : styles.inputBox}
-        {...props}
       />
       {secureTextEntry ? (
         <View style={styles.inputView}>
