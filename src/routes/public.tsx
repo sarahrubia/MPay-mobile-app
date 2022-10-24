@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -6,7 +7,6 @@ import HomeScreen from '../screens/home/Home';
 import LoginScreen from '../screens/login/Login';
 import DashboardScreen from '../screens/dashboard/Dashboard';
 import { routes } from '../constants/navigation/constants';
-import { useSelector } from 'react-redux';
 import { getToken } from '../store/auth/selectors';
 
 type StackParamList = {
