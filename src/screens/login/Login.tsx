@@ -1,14 +1,28 @@
-import React from 'react';
-import { StatusBar, View } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import React, { useState } from 'react';
+import { Alert, StatusBar, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import AppButton from '../../components/AppButton';
 import InputField from '../../components/InputField';
-import { routes } from '../../constants/navigation/constants';
+import { authenticate } from '../../store/auth/actions';
+import getAuthCredentials from '../../services/loginAuth';
 
 import * as S from './styled';
 
-function Login({ navigation }) {
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  async function handleLogin() {
+    try {
+      let credentials = await getAuthCredentials(email, password);
+      dispatch(authenticate(credentials));
+    } catch (error) {
+      Alert.alert(error.message);
+    }
+  }
   return (
     <S.SafeAreaViewContext>
       <StatusBar barStyle={'light-content'} backgroundColor={'#222222'} />
@@ -23,6 +37,10 @@ function Login({ navigation }) {
             <InputField
               placeholder={'Email'}
               placeholderTextColor={'#9F9F9F'}
+              value={email}
+              onChangeText={setEmail}
+              keyboardType={'email-address'}
+              autoCapitalize={'none'}
             />
           </S.TextInputContainer>
           <S.TextInputContainer>
@@ -30,6 +48,8 @@ function Login({ navigation }) {
               placeholder={'Senha'}
               placeholderTextColor={'#9F9F9F'}
               secureTextEntry
+              value={password}
+              onChangeText={setPassword}
             />
           </S.TextInputContainer>
           <S.RememberPassword>
@@ -43,10 +63,7 @@ function Login({ navigation }) {
         </View>
       </S.ContentView>
       <S.SubmitButtonWrapper>
-        <AppButton
-          title={'ENTRAR'}
-          onPress={() => navigation.navigate(routes.DASHBOARD)}
-        />
+        <AppButton title={'ENTRAR'} onPress={handleLogin} />
       </S.SubmitButtonWrapper>
       <S.ForgotPasswordText>Esqueci minha senha</S.ForgotPasswordText>
     </S.SafeAreaViewContext>
