@@ -1,15 +1,15 @@
 export const AUTHENTICATE = 'AUTHENTICATE';
 export const LOGOUT = 'LOGOUT';
 
-export const authenticate = token => {
+export function authenticate(token) {
   return {
     type: AUTHENTICATE,
     payload: token,
   };
-};
+}
 
-export const logout = () => {
+export function logout() {
   return {
     type: LOGOUT,
   };
-};
+}

@@ -1,4 +1,4 @@
-async function loginAuth(email: string, password: string) {
+async function getAuthCredentials(email: string, password: string) {
   const data = { email, password };
 
   const requestOptions = {
@@ -22,4 +22,4 @@ async function loginAuth(email: string, password: string) {
   return result.token;
 }
 
-export default loginAuth;
+export default getAuthCredentials;
